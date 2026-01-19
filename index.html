@@ -25,7 +25,7 @@
             --modal-text: var(--text-main);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; list-style: none; }
         
         body { background-color: var(--bg-body); color: var(--text-main); padding-bottom: 80px; }
 
@@ -196,7 +196,7 @@
         .search-wrapper { position: relative; margin-bottom: 1rem; }
         .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-light); }
         
-        .tags-scroll { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 10px; -webkit-overflow-scrolling: touch; max-width: 100%; }
+        .tags-scroll { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 10px; -webkit-overflow-scrolling: touch; max-width: 100%; list-style: none; }
         .tag { padding: 6px 16px; border-radius: 20px; background: var(--bg-card); color: var(--text-main); border: 1px solid rgba(128, 128, 128, 0.2); cursor: pointer; white-space: nowrap; transition: 0.2s; }
         .tag:hover { border-color: #8b5cf6; color: #8b5cf6; }
         .tag.active { background: #8b5cf6; color: white; border-color: #8b5cf6; }
@@ -1381,7 +1381,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V811", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V740", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
