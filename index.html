@@ -2342,7 +2342,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V758", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V214", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
