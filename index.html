@@ -560,7 +560,6 @@
                 <button class="btn-faq-anim" @click="openWordOfDay">
                     <div class="btn-faq-content"><i class="fas fa-book-open"></i><span class="btn-faq-text">Palavra do Dia</span></div>
                 </button>
-                <button class="btn btn-outline" @click="openSmartFilter"><i class="fas fa-brain"></i> <span class="desktop-text">IA</span></button>
                 <button class="btn btn-primary" @click="showFavorites = !showFavorites">
                     <i class="fas fa-heart" :class="showFavorites ? 'fa-home' : 'fa-heart'"></i>
                     <span class="desktop-text" x-text="showFavorites ? 'Home' : 'Favoritos'">Favoritos</span>
@@ -2096,7 +2095,7 @@
         <button class="btn-back-to-top" :class="showBackToTop ? 'show' : ''" @click="scrollToTop" style="position: static; transform: none; opacity: 1; display: none;" x-show="showBackToTop">
             <i class="fas fa-arrow-up"></i>
         </button>
-        <button id="btn-smart-filter" class="btn-buy" style="padding:10px 20px; font-weight:700; width:auto; border-radius:50px; background:var(--secondary); box-shadow:0 6px 20px rgba(236, 72, 153, 0.4); border:none;" @click="openSmartFilter">
+        <button id="btn-smart-filter" class="btn-buy" style="padding:10px 20px; font-weight:700; width:auto; border-radius:50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); border:none;" @click="openSmartFilter">
             <i class="fas fa-brain" style="margin-right:8px;"></i> Filtro Inteligente
         </button>
     </div>
@@ -2177,7 +2176,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V900", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V189", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
