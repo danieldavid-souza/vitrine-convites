@@ -926,7 +926,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2024 Convite.Digital - Todos os direitos reservados.</p>
+            <p>© 2024 Foto ART Personalizados - Todos os direitos reservados.</p>
             <div style="margin-top: 1rem;">
                 <i class="fab fa-whatsapp" style="font-size: 1.5rem; margin: 0 10px; color: #25D366; cursor: pointer;" @click="abrirZap()"></i>
                 <template x-if="config.social?.instagram">
@@ -1166,7 +1166,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V280", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V503", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
