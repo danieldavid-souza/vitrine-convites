@@ -2012,38 +2012,6 @@
                                     <i class="fas fa-search"></i> Ver Resultados
                                 </button>
                             </template>
-                        </div><div class="chat-msg chat-user" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
-                            <div x-text="msg.text">Olá boa tarde! Você tem o tema da Arlequina?</div>
-                            <template x-if="msg.action">
-                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                            </template>
-                        </div><div class="chat-msg chat-bot" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
-                            <div x-text="msg.text">Achei **3** modelos de **"arlequina"** que vão ficar lindos no seu evento! 😍</div>
-                            <template x-if="msg.action">
-                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                            </template><button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                        </div><div class="chat-msg chat-user" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
-                            <div x-text="msg.text">Olá boa tarde! Você tem o tema do Bob Zoom?</div>
-                            <template x-if="msg.action">
-                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                            </template>
-                        </div><div class="chat-msg chat-bot" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
-                            <div x-text="msg.text">Achei **3** modelos de **"bob zoom"** que vão ficar lindos no seu evento! 😍</div>
-                            <template x-if="msg.action">
-                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                            </template><button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
                         </div>
                 </div>
                 <div class="chat-footer">
@@ -2199,7 +2167,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V189", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V454", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
