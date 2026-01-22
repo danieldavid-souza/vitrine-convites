@@ -409,6 +409,17 @@
                 font-size: 0.85rem;
             }
         }
+
+        /* SMART FILTER & CHAT SYSTEM */
+        #btn-smart-filter { position: relative; overflow: hidden; }
+        #btn-smart-filter::after { content: ''; position: absolute; top: 0; left: -150%; width: 100%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); animation: shine 3s infinite; }
+        @keyframes shine { 0% { left: -150%; } 20% { left: 150%; } 100% { left: 150%; } }
+        
+        .floating-actions-container { 
+            position: fixed; bottom: 20px; right: 20px; z-index: 90; 
+            display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 10px; pointer-events: none; 
+        }
+        .floating-actions-container > * { pointer-events: auto; }
     </style>
 <style type="text/css">
     @font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.ttf) format("truetype");font-style:normal;font-weight:100;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.ttf) format("truetype");font-style:normal;font-weight:300;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.ttf) format("truetype");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.ttf) format("truetype");font-style:normal;font-weight:500;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.ttf) format("truetype");font-style:normal;font-weight:700;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.ttf) format("truetype");font-style:normal;font-weight:900;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.ttf) format("truetype");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.ttf) format("truetype");font-style:normal;font-weight:500;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.ttf) format("truetype");font-style:normal;font-weight:600;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.ttf) format("truetype");font-style:normal;font-weight:700;font-display:swap}
@@ -549,7 +560,7 @@
                 <button class="btn-faq-anim" @click="openWordOfDay">
                     <div class="btn-faq-content"><i class="fas fa-book-open"></i><span class="btn-faq-text">Palavra do Dia</span></div>
                 </button>
-                <button class="btn btn-outline" @click="openAssistant"><i class="fas fa-robot"></i> <span class="desktop-text">Assistente</span></button>
+                <button class="btn btn-outline" @click="openSmartFilter"><i class="fas fa-brain"></i> <span class="desktop-text">IA</span></button>
                 <button class="btn btn-primary" @click="showFavorites = !showFavorites">
                     <i class="fas fa-heart" :class="showFavorites ? 'fa-home' : 'fa-heart'"></i>
                     <span class="desktop-text" x-text="showFavorites ? 'Home' : 'Favoritos'">Favoritos</span>
@@ -1995,7 +2006,7 @@
                     </h3>
                     <button @click="showAssistant = false" style="background:none; border:none; color:var(--text-light); cursor:pointer; font-size:1.5rem; line-height: 1;">×</button>
                 </div>
-                <div id="chat-box" class="chat-body">
+                <div id="smart-chat-window" class="chat-body">
                     <template x-for="msg in chatMessages">
                         <div class="chat-msg" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
                             <div x-text="msg.text"></div>
@@ -2012,6 +2023,22 @@
                                     <i class="fas fa-search"></i> Ver Resultados
                                 </button>
                             </template>
+                        </div><div class="chat-msg chat-user" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
+                            <div x-text="msg.text">Olá boa noite! Você tem o tema do Homem Aranha?</div>
+                            <template x-if="msg.action">
+                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
+                                    <i class="fas fa-search"></i> Ver Resultados
+                                </button>
+                            </template>
+                        </div><div class="chat-msg chat-bot" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
+                            <div x-text="msg.text">Achei **2** modelos de **"homem homem aranha"** que vão ficar lindos no seu evento! 😍</div>
+                            <template x-if="msg.action">
+                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
+                                    <i class="fas fa-search"></i> Ver Resultados
+                                </button>
+                            </template><button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
+                                    <i class="fas fa-search"></i> Ver Resultados
+                                </button>
                         </div>
                 </div>
                 <div class="chat-footer">
@@ -2087,9 +2114,15 @@
 
     
 
-    <button class="btn-back-to-top" :class="showBackToTop ? 'show' : ''" @click="scrollToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- FLOATING ACTIONS (SMART FILTER + BACK TO TOP) -->
+    <div class="floating-actions-container">
+        <button class="btn-back-to-top" :class="showBackToTop ? 'show' : ''" @click="scrollToTop" style="position: static; transform: none; opacity: 1; display: none;" x-show="showBackToTop">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <button id="btn-smart-filter" class="btn-buy" style="padding:10px 20px; font-weight:700; width:auto; border-radius:50px; background:var(--secondary); box-shadow:0 6px 20px rgba(236, 72, 153, 0.4); border:none;" @click="openSmartFilter">
+            <i class="fas fa-brain" style="margin-right:8px;"></i> Filtro Inteligente
+        </button>
+    </div>
 
     <div class="toast" :class="toast.show ? 'show' : ''" x-text="toast.message"></div>
 
@@ -2167,7 +2200,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V454", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V317", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
@@ -2217,6 +2250,7 @@
                 showWordOfDayModal: false,
                 adminPassword: '',
                 showAssistant: false,
+                stopWords: new Set(['oi', 'olá', 'ola', 'bom', 'boa', 'dia', 'tarde', 'noite', 'tem', 'têm', 'algum', 'alguma', 'alguns', 'tema', 'temas', 'de', 'da', 'do', 'das', 'dos', 'para', 'o', 'a', 'um', 'uma', 'uns', 'gostaria', 'ver', 'procurando', 'procuro', 'voce', 'você', 'queria', 'saber', 'se', 'ou', 'e', 'é', 'que', 'me', 'mostra', 'mostre', 'sobre', 'com', 'modelo', 'modelos', 'tipo', 'tipos', 'convite', 'convites', 'arte', 'artes', 'pacote', 'pacotes', 'festa', 'festas', 'faz', 'fazer', 'preciso', 'precisa', 'encontrar', 'ache', 'acha', 'por', 'favor', 'gentileza']),
                 showProductFormModal: false,
                 chatInput: '',
                 chatMessages: [{sender: 'bot', text: 'Olá! Estou aqui para ajudar. Diga o que procura (ex: "Casamento", "15 Anos").'}],
@@ -2359,14 +2393,18 @@
                     // Filtro de Busca
                     if (this.searchQuery && this.searchQuery.trim() !== '') {
                         const q = this.searchQuery.toLowerCase();
+                        
+                        // Tokenização inteligente: Quebra a frase em palavras e remove as inúteis
+                        let tokens = q.split(/\s+/).filter(t => t.length > 1 && !this.stopWords.has(t));
+                        // Fallback: Se o usuário digitou SÓ stop words (ex: "Convite"), usa o termo original
+                        if (tokens.length === 0) tokens = q.split(/\s+/).filter(t => t.length > 0);
+
                         items = items.filter(p => {
                             if(!p) return false;
-                            const name = (p.name || '').toLowerCase();
-                            const desc = (p.description || '').toLowerCase();
-                            const id = String(p.id || '');
-                            const type = (p.itemType || '').toLowerCase();
-                            const terms = (p.searchTerms || '').toLowerCase();
-                            return name.includes(q) || desc.includes(q) || id.includes(q) || type.includes(q) || terms.includes(q);
+                            // Cria um "super texto" do produto contendo todas as informações relevantes
+                            const productText = `${p.name} ${p.description} ${p.id} ${p.itemType} ${p.searchTerms}`.toLowerCase();
+                            // Verifica se TODOS os tokens relevantes estão presentes no produto (Lógica AND)
+                            return tokens.every(token => productText.includes(token));
                         });
                     }
                     
@@ -2532,7 +2570,10 @@
                 },
 
                 // --- ASSISTANT LOGIC ---
-                openAssistant() { this.showAssistant = true; },
+                openSmartFilter() { 
+                    this.showAssistant = true; 
+                    this.$nextTick(() => { const chat = document.getElementById('smart-chat-window'); if(chat) chat.scrollTop = chat.scrollHeight; });
+                },
                 
                 clearAllFilters() {
                     this.searchQuery = '';
@@ -2559,7 +2600,7 @@
                     const userText = this.chatInput;
                     this.chatMessages.push({ sender: 'user', text: userText });
                     this.chatInput = '';
-                    this.$nextTick(() => { const chat = document.getElementById('chat-box'); chat.scrollTop = chat.scrollHeight; });
+                    this.$nextTick(() => { const chat = document.getElementById('smart-chat-window'); chat.scrollTop = chat.scrollHeight; });
 
                     // Lógica de Busca Inteligente Aprimorada (NLP)
                     setTimeout(() => {
@@ -2567,8 +2608,6 @@
                         let cleanText = userText.toLowerCase().replace(/[.,?!]/g, ' ').trim();
                         
                         // 2. Dicionários de Inteligência (Stop Words e Sinônimos)
-                        const stopWords = new Set(['oi', 'olá', 'ola', 'bom', 'boa', 'dia', 'tarde', 'noite', 'tem', 'têm', 'algum', 'alguma', 'alguns', 'tema', 'temas', 'de', 'da', 'do', 'das', 'dos', 'para', 'o', 'a', 'um', 'uma', 'uns', 'gostaria', 'ver', 'procurando', 'procuro', 'voce', 'você', 'queria', 'saber', 'se', 'ou', 'e', 'é', 'que', 'me', 'mostra', 'mostre', 'sobre', 'com', 'modelo', 'modelos', 'tipo', 'tipos', 'convite', 'convites', 'arte', 'artes', 'pacote', 'pacotes', 'festa', 'festas', 'faz', 'fazer', 'preciso', 'precisa', 'encontrar', 'ache', 'acha', 'por', 'favor', 'gentileza']);
-                        
                         const synonyms = {
                             'alerquina': 'arlequina', 'harley': 'arlequina', 'quinn': 'arlequina',
                             'miranha': 'homem aranha', 'aranha': 'homem aranha', 'spiderman': 'homem aranha',
@@ -2587,7 +2626,7 @@
                         let keywords = [];
                         
                         tokens.forEach(t => {
-                            if (!stopWords.has(t) && t.length > 1) {
+                            if (!this.stopWords.has(t) && t.length > 1) {
                                 let term = synonyms[t] || t;
                                 keywords.push(term);
                             }
@@ -2595,7 +2634,7 @@
 
                         if (keywords.length === 0) {
                             this.chatMessages.push({ sender: 'bot', text: 'Por favor, digite o tema específico que você procura (ex: "Mickey", "Casamento", "Floral").' });
-                            this.$nextTick(() => { const chat = document.getElementById('chat-box'); chat.scrollTop = chat.scrollHeight; });
+                            this.$nextTick(() => { const chat = document.getElementById('smart-chat-window'); chat.scrollTop = chat.scrollHeight; });
                             return;
                         }
 
@@ -2639,7 +2678,7 @@
                                 });
                             }
                         }
-                        this.$nextTick(() => { const chat = document.getElementById('chat-box'); chat.scrollTop = chat.scrollHeight; });
+                        this.$nextTick(() => { const chat = document.getElementById('smart-chat-window'); chat.scrollTop = chat.scrollHeight; });
                     }, 600);
                 },
 
