@@ -381,6 +381,34 @@
         }
         .btn-details-elegant i { font-size: 0.9rem; transition: transform 0.3s; }
         .btn-details-elegant:hover i { transform: translateX(3px); }
+
+        /* AJUSTES RESPONSIVOS DO CARD */
+        .card-footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 640px) {
+            .card-footer-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .card-price {
+                align-self: flex-start;
+                margin-bottom: 5px;
+                font-size: 1.1rem;
+            }
+            .btn-details-elegant {
+                width: 100%;
+                justify-content: center;
+                padding: 8px;
+                font-size: 0.85rem;
+            }
+        }
     </style>
 <style type="text/css">
     @font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.ttf) format("truetype");font-style:normal;font-weight:100;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.ttf) format("truetype");font-style:normal;font-weight:300;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.ttf) format("truetype");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.ttf) format("truetype");font-style:normal;font-weight:500;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.ttf) format("truetype");font-style:normal;font-weight:700;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.ttf) format("truetype");font-style:normal;font-weight:900;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.ttf) format("truetype");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.ttf) format("truetype");font-style:normal;font-weight:500;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.ttf) format("truetype");font-style:normal;font-weight:600;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.ttf) format("truetype");font-style:normal;font-weight:700;font-display:swap}
@@ -534,7 +562,7 @@
         
         <div x-show="!isAdminMode" style="display: none;">
             <!-- BANNERS PUBLIC VIEW -->
-            <div class="banner-container" x-show="config.banners &amp;&amp; config.banners.length &gt; 0">
+            <div class="banner-container" x-show="config.banners &amp;&amp; config.banners.length &gt; 0" style="">
                 <div class="banner-scroll"><template x-for="(banner, index) in config.banners" :key="index">
                         <div class="banner-item"><img :src="banner.image" class="banner-img" @click="if(banner.link) window.open(banner.link, '_blank')"></div>
                     </template></div>
@@ -593,7 +621,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -618,7 +646,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -640,7 +668,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -662,7 +690,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -684,7 +712,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -706,7 +734,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -728,7 +756,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -750,7 +778,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -772,7 +800,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -794,7 +822,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -816,7 +844,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -838,7 +866,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -860,7 +888,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -882,7 +910,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -904,7 +932,7 @@
                                         <i class="fas fa-heart" :style="isFavorite(product.id) ? 'color: var(--secondary)' : 'color: #ddd'" @click.stop="toggleFavorite(product.id)" style="cursor: pointer"></i>
                                     </div>
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="card-footer-row">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
                                         <button class="btn-details-elegant" @click="openProductModal(product)">
                                             Ver Detalhes <i class="fas fa-arrow-right"></i>
@@ -1166,7 +1194,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V918", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V707", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
