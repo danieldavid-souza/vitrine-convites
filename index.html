@@ -2016,30 +2016,7 @@
                                 </button>
                             </template>
                         </div>
-                    </template><div class="chat-msg chat-bot" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
-                            <div x-text="msg.text">Olá! Estou aqui para ajudar. Diga o que procura (ex: "Casamento", "15 Anos").</div>
-                            <template x-if="msg.action">
-                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                            </template>
-                        </div><div class="chat-msg chat-user" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
-                            <div x-text="msg.text">Olá boa noite! Você tem o tema do Homem Aranha?</div>
-                            <template x-if="msg.action">
-                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                            </template>
-                        </div><div class="chat-msg chat-bot" :class="msg.sender === 'user' ? 'chat-user' : 'chat-bot'">
-                            <div x-text="msg.text">Achei **2** modelos de **"homem homem aranha"** que vão ficar lindos no seu evento! 😍</div>
-                            <template x-if="msg.action">
-                                <button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                            </template><button class="btn btn-primary" style="margin-top: 8px; font-size: 0.85rem; width: 100%;" @click="applyAssistantFilter(msg.action)">
-                                    <i class="fas fa-search"></i> Ver Resultados
-                                </button>
-                        </div>
+                    </template>
                 </div>
                 <div class="chat-footer">
                     <input type="text" x-model="chatInput" @keydown.enter="sendMessage" class="search-bar" style="margin:0; border-radius:25px; background: var(--bg-body);" placeholder="Digite sua dúvida...">
@@ -2200,7 +2177,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V317", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V900", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
@@ -3314,6 +3291,21 @@
                     if (toast) {
                         toast.classList.remove('show');
                         toast.innerText = '';
+                    }
+
+                    // 6. Limpar Chat Fantasma (MANTENDO O TEMPLATE ALPINE)
+                    const chatWindow = clone.querySelector('#smart-chat-window');
+                    if (chatWindow) {
+                        // Remove todos os elementos gerados (balões/botões), mantendo apenas as tags <template>
+                        const children = Array.from(chatWindow.children);
+                        children.forEach(child => {
+                            if (child.tagName !== 'TEMPLATE') {
+                                child.remove();
+                            }
+                        });
+                        // Garante que o modal esteja fechado visualmente no arquivo gerado
+                        const chatModal = chatWindow.closest('.modal-overlay');
+                        if (chatModal) chatModal.classList.remove('active');
                     }
 
                     let html = clone.outerHTML;
