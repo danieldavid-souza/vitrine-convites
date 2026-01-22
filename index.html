@@ -356,6 +356,31 @@
         }
         .btn-back-to-top.show { opacity: 1; pointer-events: all; transform: translateY(0); }
         .btn-back-to-top:hover { background: var(--primary-dark); transform: translateY(-5px); }
+
+        /* BOTÃO DETALHES ELEGANTE */
+        .btn-details-elegant {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+        }
+        .btn-details-elegant:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            filter: brightness(1.1);
+        }
+        .btn-details-elegant i { font-size: 0.9rem; transition: transform 0.3s; }
+        .btn-details-elegant:hover i { transform: translateX(3px); }
     </style>
 <style type="text/css">
     @font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-100.ttf) format("truetype");font-style:normal;font-weight:100;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-300.ttf) format("truetype");font-style:normal;font-weight:300;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-400.ttf) format("truetype");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-500.ttf) format("truetype");font-style:normal;font-weight:500;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-700.ttf) format("truetype");font-style:normal;font-weight:700;font-display:swap}@font-face{font-family:"Roboto";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Roboto/roboto-900.ttf) format("truetype");font-style:normal;font-weight:900;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-400.ttf) format("truetype");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-500.ttf) format("truetype");font-style:normal;font-weight:500;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-600.ttf) format("truetype");font-style:normal;font-weight:600;font-display:swap}@font-face{font-family:"Rebond";src:url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.woff) format("woff"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.woff2) format("woff2"),url(chrome-extension://emalgedpdlghbkikiaeocoblajamonoh/fonts/Rebond/rebond-700.ttf) format("truetype");font-style:normal;font-weight:700;font-display:swap}
@@ -570,7 +595,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -593,7 +620,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -613,7 +642,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -633,7 +664,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -653,7 +686,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -673,7 +708,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -693,7 +730,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -713,7 +752,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -733,7 +774,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -753,7 +796,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -773,7 +818,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -793,7 +840,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -813,7 +862,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -833,7 +884,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -853,7 +906,9 @@
                                     <p x-text="truncate(product.description, 50)" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;"></p>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
                                         <span class="card-price" x-text="formatMoney(product.price)"></span>
-                                        <button class="btn btn-primary" style="font-size: 0.8rem;" @click="openProductModal(product)">Ver Detalhes</button>
+                                        <button class="btn-details-elegant" @click="openProductModal(product)">
+                                            Ver Detalhes <i class="fas fa-arrow-right"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -1111,7 +1166,7 @@
             init() {
                 if (this.db) return Promise.resolve(this.db);
                 return new Promise((resolve, reject) => {
-                    const request = indexedDB.open("ConvitesDigital_DB_V228", 1);
+                    const request = indexedDB.open("ConvitesDigital_DB_V280", 1);
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
                         if (!db.objectStoreNames.contains("store")) db.createObjectStore("store");
